@@ -1,0 +1,41 @@
+{% from "bootstrap5/form.html" import render_form %} {% block content %} {%
+    include "base.html" %}
+<header class="masthead">
+    <style>
+        main > div > .row {
+            background-color: darkgray;
+            border: black double 5px;
+            padding: 20px;
+        }
+    </style>
+    <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+            <h1>Update Location</h1>
+            <hr>
+            <h2>Edit or delete an existing location or delete it from the stores list.</h2>
+        </div>
+        </div>
+    </div>
+    </div>
+</header>
+<main class="mb-4">
+    <div class="container">
+    <div class="row">
+        {%  with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <p class="flash">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="col-lg-8 col-md-10 mx-auto", class="login">
+        {{ render_form(edit_form, novalidate=True, button_map={"update": "warning"}) }}
+        <a class="btn btn-danger btn-lg" href="{{ url_for('delete') }}" role="button" style="margin-top: 20px;">Delete!</a>
+        <a class="btn btn-secondary btn-lg" href="/shops" role="button" style="margin-top: 20px;">Cancel</a>
+        </div>
+    </div>
+    </div>
+</main>
+{% include "footer.html" %} {% endblock %}

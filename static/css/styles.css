@@ -1,0 +1,40 @@
+body {
+    background-color: black;
+    color: white;
+    }
+    
+a {
+    color: #ffc107;
+}  
+
+h1 {
+    font-size: 5rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+    color: black
+}
+
+span {
+    background-color: #00000020;
+}
+
+.jumbotron {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    color: white;
+    background-color: black;
+    background-image: url("../assets/coffeebackground.jpg");   
+}
+    
+.space-above {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.form-floating {
+    padding: 10px
+  }

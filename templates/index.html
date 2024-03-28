@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Coffee and Flavors{% endblock %}
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+      <h1> Coffee and Flavors</h1>
+      <p class="lead"><span>Want some coffee or maybe a place to get work done?</span></p>
+      <hr class="my-4">
+      <p><span>Welcome to my website of local coffee shops I have visited! Whether you are looking for a place to work or simply want amazing coffee, here is a place of local stores I have visited along with my opinion of certain features!</span></p>
+      <a class="btn btn-warning btn-lg" href="{{ url_for('shops') }}" role="button">View Shops!</a>
+    </div>
+  </div>
+  {% include "footer.html" %}
+{% endblock %}
+

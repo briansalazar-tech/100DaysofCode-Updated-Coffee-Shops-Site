@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    {% block styles %}
+    {{ bootstrap.load_css() }}
+    <link href="../static/css/styles.css" rel="stylesheet" />
+    {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">Brian's Northern Nevada Coffee Adventures!</span>
+        </a>
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="{{ url_for('shops') }}" class="nav-link px-2 text-white">Shops Visited ☕️</a></li>
+          <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link px-2 text-white">About</a></li>
+          <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link px-2 text-white">Contact</a></li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item"><a href="{{ url_for('add') }}" class="nav-link px-2 text-white">Add Location</a></li>
+          <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link px-2 text-white">{{ current_user.name }} (Log Out)</a></li>
+          {% endif %}
+        </ul>
+      </header>
+    </div>
+    {% block content %}{% endblock %}
+  </body>
+</html>

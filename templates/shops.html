@@ -1,0 +1,45 @@
+<style>
+  body {
+      background-image: url("../static/assets/bagofcoffee.jpg");
+      background-size: 100% 100%;
+  }
+</style>
+{% extends 'base.html' %}
+{% block title %}Coffee and Flavors - Shops{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+      <h1 class="display-1">Store List</h1>
+      {% if current_user.is_authenticated %}
+      <p>Click on a store to edit or delete it from list.</p>
+      {% endif %}
+      <hr>
+      <table class="table table-dark table-striped table-hover">
+      {% if current_user.is_authenticated %}
+        {% for row in shops[:1]: %}
+        <tr>
+          {% for item in row%} 
+          <td>{{ item }}</td>
+          {% endfor %}{% endfor %}
+        </tr>
+        {% for row in shops[1:]: %}
+        <tr>
+          {% for item in row%}
+          <td><a href="{{ url_for('edit', id=shops.index(row)) }}">{{ item }}</a></td>
+          {% endfor %}
+        </tr>
+          {% endfor %}
+      {% else %}
+        {% for row in shops: %}
+        <tr>
+          {% for item in row%}
+          <td>{{ item }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+    </div>
+{% include "footer.html" %}
+{% endblock %}
